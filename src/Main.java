@@ -8,7 +8,7 @@ public class Main {
 
         // Create Scanner object
         Scanner in = new Scanner(System.in);
-        
+
         // Store menu items using parallel arrays
         String[] itemName = {"Munchee Biscuits", "Bananas", "Diary Chocolate"};
         double[] itemPrice = {15.00, 100.00, 250.00};
@@ -59,6 +59,30 @@ public class Main {
             }
 
             System.out.println(itemName[i] + "\t" + itemPrice[i] + "\t" + check);
+
+
+        }
+        // Linear search by item name
+        System.out.println("Enter the item name to search:");
+        String searchTerm = in.next();
+
+        boolean found = false;
+
+        for (int i = 0; i < itemName.length; i++) {
+
+            if (itemName[i].equalsIgnoreCase(searchTerm)) {
+
+                System.out.println("Item found!");
+                System.out.println("Name: " + itemName[i]);
+                System.out.println("Price: " + itemPrice[i]);
+                System.out.println("Available: " + itemAvailable[i]);
+
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println(searchTerm + " not found.");
         }
     }
 }
