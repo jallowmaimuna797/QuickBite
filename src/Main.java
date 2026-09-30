@@ -2,9 +2,23 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+    public static int findItemIndexByName(String[] names, String query) {
+
+        // Look for the item name
+        for (int i = 0; i < names.length; i++) {
+
+            if (names[i].equalsIgnoreCase(query)) {
+                return i;
+            }
+        }
+
+        // Return -1 if the item was not found
+        return -1;
+
+    }
     public static void main(String[] args) {
 
-        // QuickBite Munchee Bus
+        // QuickBite
 
         // Create Scanner object
         Scanner in = new Scanner(System.in);
@@ -63,27 +77,18 @@ public class Main {
 
         }
         // Linear search by item name
-        System.out.println("Enter the item name to search:");
-        String searchTerm = in.next();
 
-        boolean found = false;
+        // linear search by item name
+        int index = findItemIndexByName(itemName, "Bananas");
+        System.out.println(index);
 
-        for (int i = 0; i < itemName.length; i++) {
-
-            if (itemName[i].equalsIgnoreCase(searchTerm)) {
-
-                System.out.println("Item found!");
-                System.out.println("Name: " + itemName[i]);
-                System.out.println("Price: " + itemPrice[i]);
-                System.out.println("Available: " + itemAvailable[i]);
-
-                found = true;
-            }
+        if (index == -1) {
+            System.out.println("Item not found!");
+        } else {
+            System.out.println("Item is at index: " +index+ " - ");
         }
+        // item  is found is at index : name
 
-        if (!found) {
-            System.out.println(searchTerm + " not found.");
-        }
     }
 
 
